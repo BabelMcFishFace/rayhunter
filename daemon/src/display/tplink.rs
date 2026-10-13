@@ -20,8 +20,8 @@ async fn set_led(path: &str, brightness: u8) {
     let trigger = format!("{path}/trigger");
     let brightness_path = format!("{path}/brightness");
 
-    // Disable the kernel trigger so it does not interfere with
-    // manual LED brightness control.
+    // Do not use the kernel "timer" trigger.
+    // The M7200's timer trigger can leave the LED at brightness 0.
     if let Err(e) = tokio::fs::write(&trigger, "none").await {
         error!("failed to disable LED trigger for {path}: {e}");
         return;
@@ -55,13 +55,14 @@ fn update_m7200_led_ui(
                 break;
             }
 
-            // Check for state updates without blocking the blink loop.
+            // Check for a new UI state without blocking the blink loop.
             match ui_update_rx.try_recv() {
                 Ok(new_state) => {
                     state = new_state;
                     led_on = false;
 
-                    // Turn both LEDs off before applying the new state.
+                    // Immediately turn both LEDs off before starting
+                    // the new state.
                     all_leds_off().await;
 
                     match state {

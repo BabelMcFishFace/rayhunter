@@ -46,7 +46,7 @@
         <tbody>
             <tr class="border-b border-gray-200">
                 <td class="py-1 pr-4 text-gray-500 font-medium">Rayhunter Version</td>
-                <td class="py-1">{stats.runtime_metadata.rayhunter_version}</td>
+                <td class="py-1">{stats.runtime_metadata.rayhunter_version} (BabelMcFishFace)</td>
             </tr>
             <tr class="border-b border-gray-200">
                 <td class="py-1 pr-4 text-gray-500 font-medium">Storage</td>
