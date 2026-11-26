@@ -44,11 +44,9 @@
     <p class="text-xl mb-2">System Information</p>
     <table class="text-sm w-full">
         <tbody>
-            <tr class="border-b border-gray-200 dark:border-gray-700">
-                <td class="py-1 pr-4 text-gray-500 dark:text-gray-400 font-medium"
-                    >Rayhunter Version</td
-                >
-                <td class="py-1">{stats.runtime_metadata.rayhunter_version}</td>
+            <tr class="border-b border-gray-200">
+                <td class="py-1 pr-4 text-gray-500 font-medium">Rayhunter Version</td>
+                <td class="py-1">{stats.runtime_metadata.rayhunter_version} (BabelMcFishFace)</td>
             </tr>
             <tr class="border-b border-gray-200 dark:border-gray-700">
                 <td class="py-1 pr-4 text-gray-500 dark:text-gray-400 font-medium">Storage</td>
